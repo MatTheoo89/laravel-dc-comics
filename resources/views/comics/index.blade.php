@@ -2,6 +2,7 @@
 
 @section('content')
     <div class="container">
+        <a class="btn btn-success my-5" href="{{route('comics.create')}}">Crea una nuova pasta</a>
         <h1>Elenco Comics</h1>
         <table class="table table-striped">
             <thead>
