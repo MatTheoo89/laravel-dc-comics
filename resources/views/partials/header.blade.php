@@ -1,1 +1,7 @@
-<header>HEADER</header>
+<header>
+    <div class="text-center my-5">
+        <a href="">
+            <img src="{{ Vite::asset('/resources/img/dc-logo.png') }}" alt="logo">
+        </a>
+    </div>
+</header>
