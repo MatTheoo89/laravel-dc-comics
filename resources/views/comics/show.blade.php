@@ -28,6 +28,7 @@
                 @csrf
                 @method('DELETE')
                     <button type="submit" class="btn btn-danger text-white" title="delete"><i class="fa-solid fa-trash"></i> Elimina</button>
+                    <a class="btn btn-warning text-white ms-3" href="{{route('comics.edit', $comic)}}" title="edit"><i class="fa-solid fa-pencil"></i> Modifica</a>
             </form>
                 </div>
             </div>

@@ -3,9 +3,11 @@
 @section('content')
     <div class="container">
 
-        <a class="btn btn-success my-5" href="{{route('comics.create')}}">Crea una nuova pasta</a>
+        <div class="ms-4">
+            <a class="btn btn-success my-5" href="{{route('comics.create')}}">Crea una nuova pasta</a>
+        </div>
 
-        <h1>Elenco Comics</h1>
+        <h1 class="ms-4 mb-5">Elenco Comics</h1>
 
         @if (session('deleted'))
             <div class="alert alert-info" role="alert">
@@ -13,7 +15,7 @@
             </div>
         @endif
 
-        <table class="table table-striped">
+        <table class="table table-striped mb-5">
             <thead>
                 <tr class="text-white">
                     <th scope="col">ID</th>
@@ -49,7 +51,7 @@
 
             </tbody>
         </table>
-        <div class="text-center">
+        <div class="d-flex justify-content-center">
             {{$comics->links()}}
         </div>
     </div>
