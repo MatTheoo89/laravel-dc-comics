@@ -24,14 +24,39 @@ class ComicRequest extends FormRequest
     public function rules()
     {
         return [
-            //
+            'title' => 'required | max:150 | min:5',
+            'description' => 'required | min:5',
+            'thumb' => 'required | max:255 | min:10',
+            'price' => 'required | max:10 | min:1',
+            'sale_date' => 'required | date',
+            'series' => 'required | max:50 | min:5',
+            'type' => 'required | max:50 | min:5'
         ];
     }
 
     public function message()
     {
         return [
-            //
+            'title.required' => 'Campo obbligatorio',
+            'title.max' => 'Caratteri massimi :max',
+            'title.min' => 'Caratteri minimi :min',
+            'description.required' => 'Campo obbligatorio',
+            'description.min' => 'Caratteri minimi :min',
+            'thumb.required' => 'Campo obbligatorio',
+            'thumb.max' => 'Caratteri massimi :max',
+            'thumb.min' => 'Caratteri minimi :min',
+            'price.required' => 'Campo obbligatorio',
+            'price.max' => 'Caratteri massimi :max',
+            'price.min' => 'Caratteri minimi :min',
+            'sale_date.required' => 'Campo obbligatorio',
+            'sale_date.date' => 'Formato data YYYY/MM/DD',
+            'series.required' => 'Campo obbligatorio',
+            'series.max' => 'Caratteri massimi :max',
+            'series.min' => 'Caratteri minimi :min',
+            'type.required' => 'Campo obbligatorio',
+            'type.max' => 'Caratteri massimi :max',
+            'type.min' => 'Caratteri minimi :min',
+
         ];
     }
 }
