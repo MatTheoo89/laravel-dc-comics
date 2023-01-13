@@ -2,8 +2,17 @@
 
 @section('content')
     <div class="container">
+
         <a class="btn btn-success my-5" href="{{route('comics.create')}}">Crea una nuova pasta</a>
+
         <h1>Elenco Comics</h1>
+
+        @if (session('deleted'))
+            <div class="alert alert-info" role="alert">
+                {!! session('deleted') !!}
+            </div>
+        @endif
+
         <table class="table table-striped">
             <thead>
                 <tr class="text-white">
@@ -22,8 +31,16 @@
                         <td class="text-white">
                             
                             <a class="btn btn-primary" href="{{route('comics.show', $comic)}}" title="show"><i class="fa-regular fa-eye"></i></a>
-                            <a class="btn btn-warning text-white" href="#" title="edit"><i class="fa-solid fa-pencil"></i></a>
-                            <a class="btn btn-danger text-white" href="#" title="delete"><i class="fa-solid fa-trash"></i></a>
+                            <a class="btn btn-warning text-white" href="{{route('comics.edit', $comic)}}" title="edit"><i class="fa-solid fa-pencil"></i></a>
+                            <form
+                                onsubmit="return confirm('Confermi l\'eliminazione di : {{$comic->title}}')"
+                                class="d-inline"
+                                action="{{route('comics.destroy', $comic)}}"
+                                method="post">
+                                @csrf
+                                @method('DELETE')
+                                    <button type="submit" class="btn btn-danger text-white" title="delete"><i class="fa-solid fa-trash"></i></button>
+                            </form>
                         </td>
                     </tr>
                 @empty
